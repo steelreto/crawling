@@ -1,9 +1,8 @@
 from google_play_scraper import reviews_all, Sort
 import pandas as pd
 
-# 1. 리버스1999 앱 패키지 이름
-app_package_name = 'kr.haoplay.game.and.reverse'
-
+# 1. '트릭컬 리바이브' 앱 패키지 이름
+app_package_name = 'com.epidgames.trickcalrevive'
 
 # 2. 모든 리뷰 가져오기
 reviews = reviews_all(
@@ -20,8 +19,9 @@ df = pd.DataFrame(reviews)
 df = df[['userName', 'score', 'at', 'content']]
 
 # 5. CSV 파일로 저장
+output_file = 'trickcal_revive_reviews.csv'
 df.to_csv(
-    'reverse1999_reviews.csv',
+    output_file,
     index=False,
     encoding='utf-8-sig',
     quoting=1,
